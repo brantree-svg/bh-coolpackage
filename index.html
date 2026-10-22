@@ -1,21 +1,29 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="theme-color" content="#111111">
 <title>쿨패키지 AI 룩북 결과 보고</title><meta name="robots" content="noindex,nofollow">
-<style>
-@font-face{font-family:'Pretendard';src:url(pretendard.woff2) format('woff2');font-weight:100 900;font-display:swap}
+<style>@font-face{font-family:'Pretendard';src:url(pretendard.woff2) format('woff2');font-weight:100 900;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{background:#1a1a1a}
-body{font-family:'Pretendard',Arial,sans-serif;-webkit-text-size-adjust:100%}
-.deck{display:flex;flex-direction:column;align-items:center;gap:16px;padding:16px 0}
-.slide{position:relative;width:min(100vw,calc(100vh*16/9));aspect-ratio:16/9;overflow:hidden;background:#F2F0E9}
+html,body{height:100%;background:#111;overflow:hidden;overscroll-behavior:none}
+body{font-family:'Pretendard',Arial,sans-serif;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+.deck{display:flex;width:100vw;height:100vh;height:100dvh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.deck::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100vw;height:100%;scroll-snap-align:center;scroll-snap-stop:always;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.frame{position:relative;overflow:hidden;background:#F2F0E9}
 .canvas{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
 .canvas>section{position:relative;width:1920px;height:1080px;overflow:hidden;display:block}
-.canvas>section[style*="display:flex"]{display:flex}
-img,video{display:block}
-svg{display:inline-block}
-b{font-weight:700}
-@media (max-width:900px){.deck{gap:8px;padding:8px 0}}
-</style></head><body><main class="deck">
-<div class="slide"><div class="canvas"><section id="cover" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+img,video{display:block}svg{display:inline-block}b{font-weight:700}
+.ui{position:fixed;z-index:10;color:#fff;font:600 13px/1 'Pretendard',sans-serif;transition:opacity .4s}
+.nav{top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.prev{left:12px}.next{right:12px}
+.count{bottom:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.45);padding:8px 14px;border-radius:20px;letter-spacing:1px}
+.fs{top:12px;right:12px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(0,0,0,.35);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.bar{top:0;left:0;height:2px;background:#fff;opacity:.7}
+.hint{top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.6);padding:12px 18px;border-radius:24px;pointer-events:none;white-space:nowrap}
+body.idle .nav,body.idle .fs{opacity:0}
+.nav[disabled]{opacity:.15!important}
+@media (hover:none){.nav{display:none}}</style></head><body><main class="deck">
+
+<div class="slide"><div class="frame"><div class="canvas"><section id="cover" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">COVER</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -32,8 +40,8 @@ b{font-weight:700}
 <p style="position:absolute;left:1260px;top:930px;width:600px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.3;text-align:left">2026. 10. 22 · ver.03 · 마케팅팀</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="index" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="index" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">CONTENTS</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -66,8 +74,8 @@ b{font-weight:700}
 <div style="position:absolute;left:600px;top:940px;width:1260px;height:1px;background:#CBC7BB"></div>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="summary" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="summary" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">SUMMARY</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -103,8 +111,8 @@ b{font-weight:700}
 <img src="75d74b87dbf9b425ded1e794813a497f.jpg" alt="쿨브리더블 짐커뮤트" style="position:absolute;left:1565px;top:472px;width:293px;height:518px;object-fit:cover;object-position:50% 35%">
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="div1" data-transition="fade" style="background:#DCD8CC;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="div1" data-transition="fade" style="background:#DCD8CC;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">SECTION 01</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#B9B2A2"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -118,8 +126,8 @@ b{font-weight:700}
 <p style="position:absolute;left:760px;top:330px;width:1110px;font-size:640px;font-weight:400;color:#111111;line-height:0.8;text-align:right;letter-spacing:-36px">01</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="plan" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="plan" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">01 · PLAN</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -162,8 +170,8 @@ b{font-weight:700}
 <p style="position:absolute;left:1250px;top:870px;width:610px;font-size:13px;font-weight:500;color:#7D7B74;line-height:1.4;text-align:left">한 장으로 완성하는 완벽한 퍼포먼스</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="symbol" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="symbol" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">01 · SYMBOL</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -190,8 +198,8 @@ b{font-weight:700}
 <p style="position:absolute;left:1250px;top:860px;width:610px;font-size:13px;font-weight:400;color:#AEB6C2;line-height:1.3;text-align:center">미세 아일렛 메시 · 열기 배출 · 속건 퍼포먼스</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="div2" data-transition="fade" style="background:#C9D9E2;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="div2" data-transition="fade" style="background:#C9D9E2;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <img src="f81ef49a1fc199f1fb6eb2d0befa3a75.jpg" alt="컨셉 · 니트 조직 모노톤" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;object-fit:cover;object-position:50% 45%;filter:grayscale(1) contrast(1.08) brightness(1.06)">
 <div style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;background:rgba(201,217,226,0.62)"></div>
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">SECTION 02</p>
@@ -208,8 +216,8 @@ b{font-weight:700}
 <p style="position:absolute;left:760px;top:330px;width:1110px;font-size:640px;font-weight:400;color:#111111;line-height:0.8;text-align:right;letter-spacing:-36px">02</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="bz-key" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="bz-key" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <div style="position:absolute;left:0px;top:0px;width:720px;height:1080px;background:#C9D9E2"></div>
 <img src="cf5ff3482c7ba97b0be9fedf74591807.jpg" alt="재킷 오픈 · LATS0117 BK · 남성 A" style="position:absolute;left:720px;top:0px;width:600px;height:1080px;object-fit:cover;object-position:50% 35%">
 <img src="f81ef49a1fc199f1fb6eb2d0befa3a75.jpg" alt="니트 드레이프 · LATS0223 BK · 여성 A" style="position:absolute;left:1320px;top:0px;width:600px;height:1080px;object-fit:cover;object-position:50% 35%">
@@ -238,8 +246,8 @@ b{font-weight:700}
 <p style="position:absolute;left:1344px;top:986px;width:400px;font-size:13px;font-weight:400;color:#FFFFFF;line-height:1.2;text-align:left">니트 드레이프 · LATS0223 BK · 여성 A</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="bz-sit" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="bz-sit" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">02 · SITUATION</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -273,8 +281,8 @@ b{font-weight:700}
 <p style="position:absolute;left:1616px;top:856px;width:244px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.3;text-align:left">0117 WH 남 · 0117 DG 남</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="bz-sheet" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="bz-sheet" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">02 · SHEET</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -339,8 +347,8 @@ b{font-weight:700}
 <p style="position:absolute;left:1439px;top:988px;width:197px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.2;text-align:left">남 · 헨리넥 · 에스컬레이터</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="div3" data-transition="fade" style="background:#18253B;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="div3" data-transition="fade" style="background:#18253B;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <img src="b696654eaf8b837e3785f32675337904.jpg" alt="컨셉 · 메시 조직 모노톤" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;object-fit:cover;object-position:50% 50%;filter:grayscale(1) contrast(1.08) brightness(1.06)">
 <div style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;background:rgba(24,37,59,0.72)"></div>
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#F2F0E9;line-height:1.2;text-align:left">SECTION 03</p>
@@ -357,8 +365,8 @@ b{font-weight:700}
 <p style="position:absolute;left:760px;top:330px;width:1110px;font-size:640px;font-weight:400;color:#F2F0E9;line-height:0.8;text-align:right;letter-spacing:-36px">03</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="bd-key" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="bd-key" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <div style="position:absolute;left:0px;top:0px;width:720px;height:1080px;background:#18253B"></div>
 <img src="4827723e046ea34732edd2f68a5d5aed.jpg" alt="러닝 · LATS0116 BK · 남성 B" style="position:absolute;left:720px;top:0px;width:600px;height:1080px;object-fit:cover;object-position:50% 35%">
 <img src="b696654eaf8b837e3785f32675337904.jpg" alt="러닝 부분디테일 · 메시 조직" style="position:absolute;left:1320px;top:0px;width:600px;height:1080px;object-fit:cover;object-position:50% 35%">
@@ -387,8 +395,8 @@ b{font-weight:700}
 <p style="position:absolute;left:1344px;top:986px;width:400px;font-size:13px;font-weight:400;color:#FFFFFF;line-height:1.2;text-align:left">러닝 부분디테일 · 메시 조직</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="bd-sit" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="bd-sit" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">03 · SITUATION</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -423,8 +431,8 @@ b{font-weight:700}
 <p style="position:absolute;left:1616px;top:856px;width:244px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.3;text-align:left">정면 1 · 클로즈업 1</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="bd-sheet" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="bd-sheet" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">03 · SHEET</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -483,8 +491,8 @@ b{font-weight:700}
 <p style="position:absolute;left:619px;top:988px;width:197px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.2;text-align:left">백팩 이동</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="div4" data-transition="fade" style="background:#111111;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="div4" data-transition="fade" style="background:#111111;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#F2F0E9;line-height:1.2;text-align:left">SECTION 04</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#333333"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#F2F0E9;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#111111;letter-spacing:-0.5px">B</p></div>
@@ -498,8 +506,8 @@ b{font-weight:700}
 <p style="position:absolute;left:760px;top:330px;width:1110px;font-size:640px;font-weight:400;color:#F2F0E9;line-height:0.8;text-align:right;letter-spacing:-36px">04</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="ch-insta" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="ch-insta" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">04 · CHANNEL</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -526,8 +534,8 @@ b{font-weight:700}
 <p style="position:absolute;left:60px;top:860px;width:500px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.6;text-align:left"><b>벤치마크</b>  골드윈 서울 Goldwin Fieldwork<br>코너 타이포 · Nº 넘버링 · 국문 본문 + 영문 병기</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="ch-reels" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="ch-reels" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">04 · CHANNEL</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -557,8 +565,8 @@ b{font-weight:700}
 <p style="position:absolute;left:60px;top:800px;width:500px;font-size:18px;font-weight:500;color:#111111;line-height:1.3;text-align:left">Genjutsu 모션 이식</p>
 <p style="position:absolute;left:60px;top:860px;width:500px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.6;text-align:left"><b>트렌드</b>  스니핏 26년 9~10월 패션 릴스<br>무신사 날씨 밈 36.9만 뷰 · CK SS27 어라이벌 최대 690만 뷰</p>
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="ch-naver" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="ch-naver" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">04 · CHANNEL</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -585,8 +593,8 @@ b{font-weight:700}
 <p style="position:absolute;left:60px;top:860px;width:500px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.6;text-align:left"><b>적용</b>  대표 이미지 좌상단 기능 라벨 태그</p>
 
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="ch-musinsa" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="ch-musinsa" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">04 · CHANNEL</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -612,8 +620,8 @@ b{font-weight:700}
 <p style="position:absolute;left:60px;top:752px;width:500px;font-size:18px;font-weight:500;color:#111111;line-height:1.3;text-align:left">정방형 썸네일 · 라인 교차 노출</p>
 <p style="position:absolute;left:60px;top:860px;width:500px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.6;text-align:left"><b>적용</b>  무신사 정방형 썸네일 · 29CM 세로형 에디토리얼</p>
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="ch-kakao" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="ch-kakao" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">04 · CHANNEL</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -639,8 +647,8 @@ b{font-weight:700}
 <p style="position:absolute;left:60px;top:752px;width:500px;font-size:18px;font-weight:500;color:#111111;line-height:1.3;text-align:left">기획전 랜딩 · 쿠폰 소구</p>
 <p style="position:absolute;left:60px;top:860px;width:500px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.6;text-align:left"><b>타깃</b>  기존 구매 고객 · 이너 카테고리 관심 고객<br><b>표기</b>  광고 메시지 (광고) 표기 필수</p>
 </section>
-</div></div>
-<div class="slide"><div class="canvas"><section id="ch-meta" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
+</div></div></div>
+<div class="slide"><div class="frame"><div class="canvas"><section id="ch-meta" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">04 · CHANNEL</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
 <div style="position:absolute;left:60px;top:1010px;width:30px;height:30px;border-radius:50%;background:#111111;display:flex;align-items:center;justify-content:center"><p style="font-size:10px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px">B</p></div>
@@ -737,11 +745,28 @@ b{font-weight:700}
 <p style="position:absolute;left:60px;top:860px;width:500px;font-size:13px;font-weight:400;color:#7D7B74;line-height:1.6;text-align:left"><b>테스트</b>  소구점 3종 병렬 집행<br>반응 비교 후 확장</p>
 
 </section>
-</div></div>
+</div></div></div>
+
 </main>
-<script>
-function fit(){document.querySelectorAll('.slide').forEach(s=>{s.firstElementChild.style.transform='scale('+(s.clientWidth/1920)+')'})}
-addEventListener('resize',fit);fit();
-const io=new IntersectionObserver(es=>es.forEach(e=>e.target.querySelectorAll('video').forEach(v=>e.isIntersecting?v.play().catch(()=>{}):v.pause())),{threshold:.2});
-document.querySelectorAll('.slide').forEach(s=>io.observe(s));
-</script></body></html>
+<div class="ui bar"></div>
+<button class="ui nav prev" aria-label="이전">‹</button><button class="ui nav next" aria-label="다음">›</button>
+<button class="ui fs" aria-label="전체화면"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+<div class="ui count"></div><div class="ui hint"></div>
+<script>const deck=document.querySelector('.deck'),S=[...document.querySelectorAll('.slide')],N=S.length,cnt=document.querySelector('.count'),bar=document.querySelector('.bar'),pv=document.querySelector('.prev'),nx=document.querySelector('.next');
+let cur=0,tgt=0,lastGo=0;
+function fit(){const w=innerWidth,h=deck.clientHeight,k=Math.min(w/1920,h/1080);S.forEach(s=>{const f=s.firstElementChild;f.style.width=1920*k+'px';f.style.height=1080*k+'px';f.firstElementChild.style.transform='scale('+k+')'});go(cur,true);lastGo=0}
+function go(i,instant){tgt=Math.max(0,Math.min(N-1,i));lastGo=Date.now();deck.scrollTo({left:tgt*deck.clientWidth,behavior:instant?'auto':'smooth'})}
+function setCur(i){cur=i;if(Date.now()-lastGo>900)tgt=i;cnt.textContent=String(i+1).padStart(2,'0')+' / '+N;bar.style.width=((i+1)/N*100)+'%';pv.disabled=i==0;nx.disabled=i==N-1;history.replaceState(null,'','#'+(i+1));
+ S.forEach((s,j)=>s.querySelectorAll('video').forEach(v=>{if(j==i){v.muted=true;v.currentTime=0;const p=v.play();p&&p.catch(()=>{})}else v.pause()}))}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setCur(S.indexOf(e.target))}),{root:deck,threshold:.6});S.forEach(s=>io.observe(s));
+pv.onclick=()=>go(tgt-1);nx.onclick=()=>go(tgt+1);
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(tgt+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(tgt-1)}else if(e.key=='Home')go(0);else if(e.key=='End')go(N-1);else if(e.key=='f')fsToggle()});
+deck.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&Math.abs(e.deltaY)>20){e.preventDefault();if(!deck._w){deck._w=1;go(tgt+(e.deltaY>0?1:-1));setTimeout(()=>deck._w=0,500)}}},{passive:false});
+const fsb=document.querySelector('.fs'),de=document.documentElement,canFs=!!(de.requestFullscreen||de.webkitRequestFullscreen);
+function fsToggle(){if(!canFs)return;const on=document.fullscreenElement||document.webkitFullscreenElement;on?(document.exitFullscreen||document.webkitExitFullscreen).call(document):(de.requestFullscreen||de.webkitRequestFullscreen).call(de)}
+if(!canFs)fsb.style.display='none';fsb.onclick=fsToggle;
+let firstTap=true;addEventListener('pointerdown',()=>{if(firstTap&&canFs&&matchMedia('(hover:none)').matches){firstTap=false;try{fsToggle()}catch(e){}}},{once:true});
+let t;function wake(){document.body.classList.remove('idle');clearTimeout(t);t=setTimeout(()=>document.body.classList.add('idle'),2500)}['pointermove','pointerdown','keydown'].forEach(ev=>addEventListener(ev,wake));wake();
+addEventListener('resize',()=>setTimeout(fit,60));addEventListener('orientationchange',()=>setTimeout(fit,250));
+const h=parseInt(location.hash.slice(1));if(h>0)cur=tgt=h-1;fit();setCur(cur);
+const hint=document.querySelector('.hint');const touch=matchMedia('(hover:none)').matches;hint.textContent=touch?(matchMedia('(orientation:portrait)').matches?'가로로 돌리면 크게 · 좌우로 넘기기':'좌우로 밀어서 이동'):'← → 키 · 좌우 화살표로 이동';setTimeout(()=>hint.style.opacity=0,2600);</script></body></html>
