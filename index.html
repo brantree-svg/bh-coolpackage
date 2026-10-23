@@ -21,7 +21,28 @@ img,video{display:block}svg{display:inline-block}b{font-weight:700}
 .hint{top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.6);padding:12px 18px;border-radius:24px;pointer-events:none;white-space:nowrap}
 body.idle .nav{opacity:0}body.idle .fs{opacity:.85}
 .nav[disabled]{opacity:.15!important}
-@media (hover:none){.nav{display:none}}</style></head><body><main class="deck">
+@media (hover:none){.nav{display:none}}
+.slide img{cursor:zoom-in}
+.intro{position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:opacity .35s;padding:20px}
+.intro.hide{opacity:0;pointer-events:none}
+.ib{width:min(420px,100%);background:#F2F0E9;color:#111;border-radius:20px;padding:28px 26px 22px;font-family:'Pretendard',sans-serif;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.ib .k{font:500 11px/1.2 'Pretendard';letter-spacing:2px;color:#7D7B74}
+.ib h2{font:500 22px/1.3 'Pretendard';letter-spacing:-.5px;margin:8px 0 18px}
+.ib ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin:0 0 22px;padding:16px 0;border-top:1px solid #CBC7BB;border-bottom:1px solid #CBC7BB}
+.ib li{display:flex;align-items:center;gap:12px;font:500 14px/1.35 'Pretendard'}
+.ib li i{flex:0 0 34px;height:34px;border-radius:50%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:15px}
+.ib .bt{display:flex;flex-direction:column;gap:8px}
+.ib button{height:48px;border-radius:24px;font:600 15px/1 'Pretendard';cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.ib .p{background:#111;color:#fff;border:0}.ib .s{background:transparent;color:#111;border:1px solid #111}
+.lb{position:fixed;inset:0;z-index:40;background:rgba(8,8,8,.94);display:none;align-items:center;justify-content:center;touch-action:none}
+.lb.on{display:flex}
+.lb img{max-width:94vw;max-height:84vh;max-height:84dvh;object-fit:contain;cursor:zoom-out;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.lb .cap{position:fixed;left:0;right:0;bottom:18px;text-align:center;color:#fff;font:500 13px/1.4 'Pretendard';opacity:.85;padding:0 60px}
+.lb .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(17,17,17,.7);color:#fff;font-size:22px;cursor:pointer}
+.lb .lp,.lb .ln{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:24px;cursor:pointer}
+.lb .lp{left:12px}.lb .ln{right:12px}
+.lb .n{position:fixed;top:22px;left:0;right:0;text-align:center;color:#fff;font:600 13px/1 'Pretendard';letter-spacing:1px;opacity:.8;pointer-events:none}
+</style></head><body><main class="deck">
 <div class="slide"><div class="frame"><div class="canvas"><section id="cover" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
 <p style="position:absolute;left:60px;top:40px;width:500px;font-size:13px;font-weight:500;color:#111111;line-height:1.2;text-align:left">COVER</p>
 <div style="position:absolute;left:60px;top:68px;width:1800px;height:1px;background:#CBC7BB"></div>
@@ -749,8 +770,16 @@ body.idle .nav{opacity:0}body.idle .fs{opacity:.85}
 </main>
 <div class="ui bar"></div>
 <button class="ui nav prev" aria-label="이전">‹</button><button class="ui nav next" aria-label="다음">›</button>
-<button class="ui fs pulse" aria-label="크게 보기"><svg class="ic-in" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><svg class="ic-out" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg><span class="fs-t">크게 보기</span></button>
+<button class="ui fs" aria-label="크게 보기"><svg class="ic-in" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><svg class="ic-out" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg><span class="fs-t">크게 보기</span></button>
 <div class="ui count"></div><div class="ui hint"></div>
+<div class="intro"><div class="ib"><p class="k">BASIC HOUSE · 26FW COOL PACKAGE</p><h2>쿨패키지 AI 룩북<br>결과 보고</h2><ul>
+<li><i>⇆</i><span class="g1">좌우로 밀어서 넘기기</span></li>
+<li><i>⤢</i><span>이미지를 누르면 크게 보기</span></li>
+<li><i>▶</i><span>릴스 영상은 자동 재생</span></li>
+<li class="rot"><i>⟳</i><span>휴대폰을 가로로 돌리면 더 크게</span></li>
+</ul><div class="bt"><button class="p go-fs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>전체화면으로 보기</button><button class="s go-nm">이대로 보기</button></div></div></div>
+<div class="lb"><p class="n"></p><img alt=""><p class="cap"></p><button class="x" aria-label="닫기">×</button><button class="lp" aria-label="이전 이미지">‹</button><button class="ln" aria-label="다음 이미지">›</button></div>
+
 <script>const deck=document.querySelector('.deck'),S=[...document.querySelectorAll('.slide')],N=S.length,cnt=document.querySelector('.count'),bar=document.querySelector('.bar'),pv=document.querySelector('.prev'),nx=document.querySelector('.next');
 let cur=0,tgt=0,lastGo=0;
 function fit(){const w=innerWidth,h=deck.clientHeight,k=Math.min(w/1920,h/1080);S.forEach(s=>{const f=s.firstElementChild;f.style.width=1920*k+'px';f.style.height=1080*k+'px';f.firstElementChild.style.transform='scale('+k+')'});go(cur,true);lastGo=0}
@@ -760,7 +789,7 @@ function setCur(i){cur=i;for(let k=i-1;k<=i+2;k++)ld(k);if(Date.now()-lastGo>900
  S.forEach((s,j)=>s.querySelectorAll('video').forEach(v=>{if(j==i){v.muted=true;v.preload='auto';if(v.readyState==0)v.load();v.currentTime=0;const p=v.play();p&&p.catch(()=>{})}else v.pause()}))}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setCur(S.indexOf(e.target))}),{root:deck,threshold:.6});S.forEach(s=>io.observe(s));
 pv.onclick=()=>go(tgt-1);nx.onclick=()=>go(tgt+1);
-addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(tgt+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(tgt-1)}else if(e.key=='Home')go(0);else if(e.key=='End')go(N-1);else if(e.key=='f')fsToggle()});
+addEventListener('keydown',e=>{if(lbOn()||introOn())return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(tgt+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(tgt-1)}else if(e.key=='Home')go(0);else if(e.key=='End')go(N-1);else if(e.key=='f')fsToggle()});
 deck.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&Math.abs(e.deltaY)>20){e.preventDefault();if(!deck._w){deck._w=1;go(tgt+(e.deltaY>0?1:-1));setTimeout(()=>deck._w=0,500)}}},{passive:false});
 const fsb=document.querySelector('.fs'),de=document.documentElement,canFs=!!(de.requestFullscreen||de.webkitRequestFullscreen);
 function fsToggle(){if(!canFs)return;const on=document.fullscreenElement||document.webkitFullscreenElement;on?(document.exitFullscreen||document.webkitExitFullscreen).call(document):(de.requestFullscreen||de.webkitRequestFullscreen).call(de)}
@@ -768,8 +797,27 @@ const fsT=fsb.querySelector('.fs-t'),icIn=fsb.querySelector('.ic-in'),icOut=fsb.
 function fsUI(){const on=!!(document.fullscreenElement||document.webkitFullscreenElement);fsT.textContent=on?'원래대로':'크게 보기';icIn.style.display=on?'none':'';icOut.style.display=on?'':'none';fsb.setAttribute('aria-label',fsT.textContent)}
 document.addEventListener('fullscreenchange',()=>setTimeout(()=>{fsUI();fit()},80));document.addEventListener('webkitfullscreenchange',()=>setTimeout(()=>{fsUI();fit()},80));
 fsb.onclick=e=>{e.stopPropagation();fsb.classList.remove('pulse');if(canFs){fsToggle()}else{hint.textContent='휴대폰을 가로로 돌리면 크게 볼 수 있어요';hint.style.opacity=1;clearTimeout(hint._t);hint._t=setTimeout(()=>hint.style.opacity=0,2600)}};
-let firstTap=true;addEventListener('pointerdown',e=>{if(e.target.closest&&e.target.closest('.fs'))return;if(firstTap&&canFs&&matchMedia('(hover:none)').matches){firstTap=false;try{fsToggle()}catch(err){}}},{once:true});
 let t;function wake(){document.body.classList.remove('idle');clearTimeout(t);t=setTimeout(()=>document.body.classList.add('idle'),2500)}['pointermove','pointerdown','keydown'].forEach(ev=>addEventListener(ev,wake));wake();
 addEventListener('resize',()=>setTimeout(fit,60));addEventListener('orientationchange',()=>setTimeout(fit,250));
 const h=parseInt(location.hash.slice(1));if(h>0)cur=tgt=h-1;fit();setCur(cur);
-const hint=document.querySelector('.hint');const touch=matchMedia('(hover:none)').matches;hint.textContent=touch?(matchMedia('(orientation:portrait)').matches?'가로로 돌리면 크게 · 좌우로 넘기기':'좌우로 밀어서 이동'):'← → 키 · 좌우 화살표로 이동';setTimeout(()=>hint.style.opacity=0,2600);</script></body></html>
+const hint=document.querySelector('.hint');const touch=matchMedia('(hover:none)').matches;
+const intro=document.querySelector('.intro');function introOn(){return !intro.classList.contains('hide')}
+if(!touch){intro.querySelector('.g1').textContent='← → 방향키 · 마우스 휠로 넘기기';}
+if(!touch||!matchMedia('(orientation:portrait)').matches)intro.querySelector('.rot').style.display='none';
+const gfs=intro.querySelector('.go-fs');if(!canFs){gfs.style.display='none'}
+function closeIntro(){intro.classList.add('hide');setTimeout(()=>intro.style.display='none',400);fsb.classList.add('pulse');wake()}
+gfs.onclick=()=>{try{fsToggle()}catch(e){};closeIntro()};intro.querySelector('.go-nm').onclick=closeIntro;
+/* lightbox */
+const lb=document.querySelector('.lb'),lbI=lb.querySelector('img'),lbC=lb.querySelector('.cap'),lbN=lb.querySelector('.n');let lbL=[],lbK=0;
+function lbOn(){return lb.classList.contains('on')}
+function zoomable(im){return im.closest('.slide')&&(im.getAttribute('alt')||'')!=='BASIC HOUSE'&&im.getBoundingClientRect().width>8}
+function lbShow(k){lbK=(k+lbL.length)%lbL.length;const im=lbL[lbK];lbI.src=im.currentSrc||im.src||im.dataset.src;lbC.textContent=im.alt||'';lbN.textContent=lbL.length>1?(lbK+1)+' / '+lbL.length:'';lb.querySelector('.lp').style.display=lb.querySelector('.ln').style.display=lbL.length>1?'':'none'}
+function lbOpen(im){const sl=im.closest('.slide');lbL=[...sl.querySelectorAll('img')].filter(zoomable);lb.classList.add('on');lbShow(Math.max(0,lbL.indexOf(im)))}
+function lbClose(){lb.classList.remove('on');lbI.removeAttribute('src')}
+deck.addEventListener('click',e=>{const im=e.target.closest('img');if(im&&zoomable(im)){e.preventDefault();lbOpen(im)}});
+lb.querySelector('.x').onclick=lbClose;lb.onclick=e=>{if(e.target===lb||e.target===lbI)lbClose()};
+lb.querySelector('.lp').onclick=e=>{e.stopPropagation();lbShow(lbK-1)};lb.querySelector('.ln').onclick=e=>{e.stopPropagation();lbShow(lbK+1)};
+addEventListener('keydown',e=>{if(!lbOn())return;if(e.key=='Escape')lbClose();else if(e.key=='ArrowRight'){e.preventDefault();lbShow(lbK+1)}else if(e.key=='ArrowLeft'){e.preventDefault();lbShow(lbK-1)}});
+let tx0=null;lb.addEventListener('touchstart',e=>{tx0=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',e=>{if(tx0==null)return;const dx=e.changedTouches[0].clientX-tx0;tx0=null;if(Math.abs(dx)>50){lbShow(lbK+(dx<0?1:-1));lb._sw=Date.now()}},{passive:true});
+lb.addEventListener('click',e=>{if(lb._sw&&Date.now()-lb._sw<400){e.stopPropagation()}},true);
+</script></body></html>
