@@ -16,10 +16,10 @@ img,video{display:block}svg{display:inline-block}b{font-weight:700}
 .nav{top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .prev{left:12px}.next{right:12px}
 .count{bottom:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.45);padding:8px 14px;border-radius:20px;letter-spacing:1px}
-.fs{top:12px;right:12px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(0,0,0,.35);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.fs{top:12px;right:12px;height:40px;padding:0 16px 0 13px;border:1px solid rgba(255,255,255,.35);border-radius:20px;background:rgba(17,17,17,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;cursor:pointer;display:flex;align-items:center;gap:8px;font:600 14px/1 'Pretendard',sans-serif;letter-spacing:-.2px;box-shadow:0 2px 10px rgba(0,0,0,.25)}.fs svg{flex-shrink:0}.fs.pulse{animation:pl 1.6s ease-in-out 3}@keyframes pl{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 .bar{top:0;left:0;height:2px;background:#fff;opacity:.7}
 .hint{top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.6);padding:12px 18px;border-radius:24px;pointer-events:none;white-space:nowrap}
-body.idle .nav,body.idle .fs{opacity:0}
+body.idle .nav{opacity:0}body.idle .fs{opacity:.85}
 .nav[disabled]{opacity:.15!important}
 @media (hover:none){.nav{display:none}}</style></head><body><main class="deck">
 <div class="slide"><div class="frame"><div class="canvas"><section id="cover" data-transition="fade" style="background:#F2F0E9;color:#111111;font-family:'Pretendard', Arial, sans-serif;padding:0">
@@ -727,7 +727,7 @@ body.idle .nav,body.idle .fs{opacity:0}
 </main>
 <div class="ui bar"></div>
 <button class="ui nav prev" aria-label="이전">‹</button><button class="ui nav next" aria-label="다음">›</button>
-<button class="ui fs" aria-label="전체화면"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+<button class="ui fs pulse" aria-label="크게 보기"><svg class="ic-in" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><svg class="ic-out" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg><span class="fs-t">크게 보기</span></button>
 <div class="ui count"></div><div class="ui hint"></div>
 <script>const deck=document.querySelector('.deck'),S=[...document.querySelectorAll('.slide')],N=S.length,cnt=document.querySelector('.count'),bar=document.querySelector('.bar'),pv=document.querySelector('.prev'),nx=document.querySelector('.next');
 let cur=0,tgt=0,lastGo=0;
@@ -742,8 +742,11 @@ addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))
 deck.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&Math.abs(e.deltaY)>20){e.preventDefault();if(!deck._w){deck._w=1;go(tgt+(e.deltaY>0?1:-1));setTimeout(()=>deck._w=0,500)}}},{passive:false});
 const fsb=document.querySelector('.fs'),de=document.documentElement,canFs=!!(de.requestFullscreen||de.webkitRequestFullscreen);
 function fsToggle(){if(!canFs)return;const on=document.fullscreenElement||document.webkitFullscreenElement;on?(document.exitFullscreen||document.webkitExitFullscreen).call(document):(de.requestFullscreen||de.webkitRequestFullscreen).call(de)}
-if(!canFs)fsb.style.display='none';fsb.onclick=fsToggle;
-let firstTap=true;addEventListener('pointerdown',()=>{if(firstTap&&canFs&&matchMedia('(hover:none)').matches){firstTap=false;try{fsToggle()}catch(e){}}},{once:true});
+const fsT=fsb.querySelector('.fs-t'),icIn=fsb.querySelector('.ic-in'),icOut=fsb.querySelector('.ic-out');
+function fsUI(){const on=!!(document.fullscreenElement||document.webkitFullscreenElement);fsT.textContent=on?'원래대로':'크게 보기';icIn.style.display=on?'none':'';icOut.style.display=on?'':'none';fsb.setAttribute('aria-label',fsT.textContent)}
+document.addEventListener('fullscreenchange',()=>setTimeout(()=>{fsUI();fit()},80));document.addEventListener('webkitfullscreenchange',()=>setTimeout(()=>{fsUI();fit()},80));
+fsb.onclick=e=>{e.stopPropagation();fsb.classList.remove('pulse');if(canFs){fsToggle()}else{hint.textContent='휴대폰을 가로로 돌리면 크게 볼 수 있어요';hint.style.opacity=1;clearTimeout(hint._t);hint._t=setTimeout(()=>hint.style.opacity=0,2600)}};
+let firstTap=true;addEventListener('pointerdown',e=>{if(e.target.closest&&e.target.closest('.fs'))return;if(firstTap&&canFs&&matchMedia('(hover:none)').matches){firstTap=false;try{fsToggle()}catch(err){}}},{once:true});
 let t;function wake(){document.body.classList.remove('idle');clearTimeout(t);t=setTimeout(()=>document.body.classList.add('idle'),2500)}['pointermove','pointerdown','keydown'].forEach(ev=>addEventListener(ev,wake));wake();
 addEventListener('resize',()=>setTimeout(fit,60));addEventListener('orientationchange',()=>setTimeout(fit,250));
 const h=parseInt(location.hash.slice(1));if(h>0)cur=tgt=h-1;fit();setCur(cur);
