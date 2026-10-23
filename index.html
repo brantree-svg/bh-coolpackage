@@ -18,7 +18,7 @@ img,video{display:block}svg{display:inline-block}b{font-weight:700}
 .count{bottom:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.45);padding:8px 14px;border-radius:20px;letter-spacing:1px}
 .fs{top:12px;right:12px;height:40px;padding:0 16px 0 13px;border:1px solid rgba(255,255,255,.35);border-radius:20px;background:rgba(17,17,17,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;cursor:pointer;display:flex;align-items:center;gap:8px;font:600 14px/1 'Pretendard',sans-serif;letter-spacing:-.2px;box-shadow:0 2px 10px rgba(0,0,0,.25)}.fs svg{flex-shrink:0}.fs.pulse{animation:pl 1.6s ease-in-out 3}@keyframes pl{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 .bar{top:0;left:0;height:2px;background:#fff;opacity:.7}
-.hint{top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.6);padding:12px 18px;border-radius:24px;pointer-events:none;white-space:nowrap}
+.hint{top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.6);padding:12px 18px;border-radius:24px;pointer-events:none;white-space:nowrap;opacity:0}.hint:empty{display:none}
 body.idle .nav{opacity:0}body.idle .fs{opacity:.85}
 .nav[disabled]{opacity:.15!important}
 @media (hover:none){.nav{display:none}}
